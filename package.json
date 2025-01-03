@@ -2,7 +2,7 @@
   "name": "nexiusaiassistant",
   "displayName": "Nexius AI Assistant",
   "description": "Nexius Learning AI Assistant for Devevlopers",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -13,36 +13,36 @@
   "main": "./extension.js",
   "contributes": {
     "configuration": {
-         "type": "object",
-         "title": "Nexius AI Assistant Settings",
-         "properties": {
-          "nexiusaiassistantSettings.openaiapiKey": {
-            "type": "string",
-            "default": "",
-            "description": "The API key to use for the OpenAI API."
-          },
-          "nexiusaiassistantSettings.langSmithEnabled": {
-            "type": "boolean",
-            "default": "true",
-            "description": "Check this box to enable the LangSmith log system."
-          },
-          "nexiusaiassistantSettings.langSmithApiKey": {
-            "type": "string",
-            "default": "",
-            "description": "LangSmith API key."
-          },
-          "nexiusaiassistantSettings.unitTestPrompt": {
-            "type": "string",
-            "default": "Generate a unit test in Jest for the following TypeScript code. The test should cover the functionality of all methods and functions exported in the given code. Ensure that the test code is written in TypeScript and does not include any additional comments or explanations. Provide only the unit test code. Code to test: {{code}} Output: Provide only the Jest test code without any additional explanation.",
-            "description": "AI user prompt for unit tests. This prompt will be used to generate unit tests. The input file will be {{code}} \n Example 'Create unit test for this file: {{code}}. Only the code."
-          },
-          "nexiusaiassistantSettings.codeCheckPrompt": {
-            "type": "string",
-            "default": "Analyze the following TypeScript code for potential developer errors or best practice violations. Provide a detailed report that highlights the issues and offers suggestions for improvement. Format the response in HTML, where each issue is presented with an explanation and a proposed solution. Code to analyze:  {{code}} Output: Provide the analysis in the following HTML structure: <h1>Code Analysis Report</h1><div><h2>Issue 1: [Short description of the issue]</h2><p><strong>Explanation:</strong> [Detailed explanation of the problem]</p><p><strong>Proposed Solution:</strong></p><pre><code>[Suggested code fix]</code></pre></div>",
-            "description": "AI user prompt for code Check. This prompt will be used to check the code. The input file will be {{code}} \n Example 'Check for this file: {{code}}."
-          }
-         }
-     },
+      "type": "object",
+      "title": "Nexius AI Assistant",
+      "properties": {
+        "nexiusaiassistantSettings.openAIApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "The API key to use for the OpenAI API."
+        },
+        "nexiusaiassistantSettings.langSmithEnabled": {
+          "type": "boolean",
+          "default": "true",
+          "description": "Check this box to enable the LangSmith log system."
+        },
+        "nexiusaiassistantSettings.langSmithApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "LangSmith API key."
+        },
+        "nexiusaiassistantSettings.unitTestPrompt": {
+          "type": "string",
+          "default": "Generate a unit test in Jest for the following TypeScript code. The test should cover the functionality of all methods and functions exported in the given code. Ensure that the test code is written in TypeScript and does not include any additional comments or explanations. Provide only the unit test code. Code to test: {{code}} Output: Provide only the Jest test code without any additional explanation.",
+          "description": "AI user prompt for unit tests. This prompt will be used to generate unit tests. The input file will be {{code}} \n Example 'Create unit test for this file: {{code}}. Only the code."
+        },
+        "nexiusaiassistantSettings.codeCheckPrompt": {
+          "type": "string",
+          "default": "Analyze the following TypeScript code for potential developer errors or best practice violations. Provide a detailed report that highlights the issues and offers suggestions for improvement. Format the response in HTML, where each issue is presented with an explanation and a proposed solution. Code to analyze:  {{code}} Output: Provide the analysis in the following HTML structure: <h1>Code Analysis Report</h1><div><h2>Issue 1: [Short description of the issue]</h2><p><strong>Explanation:</strong> [Detailed explanation of the problem]</p><p><strong>Proposed Solution:</strong></p><pre><code>[Suggested code fix]</code></pre></div>",
+          "description": "AI user prompt for code Check. This prompt will be used to check the code. The input file will be {{code}} \n Example 'Check for this file: {{code}}."
+        }
+      }
+    },
     "commands": [
       {
         "command": "extension.nexiusaiassistantGenerateUnitTest",
@@ -61,7 +61,8 @@
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "build": "vsce package --allow-missing-repository"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.10",
@@ -69,9 +70,11 @@
     "@types/vscode": "^1.96.0",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.4.1",
+    "@vscode/vsce": "^3.2.1",
     "eslint": "^9.16.0"
   },
   "dependencies": {
     "axios": "^1.7.9"
-  }
+  },
+  "packageManager": "pnpm@9.15.2+sha512.93e57b0126f0df74ce6bff29680394c0ba54ec47246b9cf321f0121d8d9bb03f750a705f24edc3c1180853afd7c2c3b94196d0a3d53d3e069d9e2793ef11f321"
 }

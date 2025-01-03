@@ -1,0 +1,56 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - '**'
+permissions:
+  actions: read
+  id-token: write
+  contents: read
+  checks: write
+  issues: read
+  pull-requests: write
+jobs:
+  build:
+    name: Build Docker Image And Extract Files For Testing
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Login to DockerHub and set up Docker Buildx
+        uses: nexius-learning/CompositeAction/dockerhubLogin@v1
+        with:
+          registry_username: ${{secrets.DOCKERHUB_USERNAME}}
+          registry_password: ${{secrets.DOCKERHUB_PASSWORD}}
+      - name: build
+        run: |
+          docker build -t baseimage:build -f Dockerfile --build-arg="VERSION_PATCH=${{github.run_number}}" .
+
+  slack:
+    needs: [ build ]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - uses: 8398a7/action-slack@v3
+        with:
+          status: custom
+          fields: workflow,job,commit,repo,ref,author,took
+          custom_payload: |
+            {
+              attachments: [
+                {
+                  "author_name": '${{github.actor}}',
+                  color: (('${{needs.build.result}}' === 'failure')) ? 'danger' : 'good',
+                  title: (('${{needs.build.result}}' === 'failure')) ? `💩 ${process.env.AS_REPO}@${process.env.AS_REF}` : `:dog: ${process.env.AS_REPO}@${process.env.AS_REF}`,
+                  fields: [
+                    {
+                      title: 'Commit',
+                      value: `${process.env.AS_COMMIT}`
+                    }
+
+                  ]
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
