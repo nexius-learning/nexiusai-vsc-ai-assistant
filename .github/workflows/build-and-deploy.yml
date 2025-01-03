@@ -19,12 +19,12 @@ jobs:
         uses: actions/checkout@v4
       - name: build
         run: |
-          docker build -t baseimage:build -f Dockerfile --build-arg="VERSION_PATCH=${{github.run_number}}" .
+          docker build -t baseimage:build -f Dockerfile --build-arg="VERSION_PATCH=0.0.${{github.run_number}}" .
 
   slack:
     needs: [ build ]
     runs-on: ubuntu-latest
-    if: always()
+    if: false
     steps:
       - uses: 8398a7/action-slack@v3
         with:
