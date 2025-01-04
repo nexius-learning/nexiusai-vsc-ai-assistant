@@ -45,18 +45,18 @@ jobs:
         run: |
           mv nexiusaiassistant-0.0.${{github.run_number}}.vsix nexiusaiassistant.vsix
       - name: Start docker container
-        run: docker run --name temporaryContainer -d mcr.microsoft.com/azure-cli sh -c "while :; do sleep 2073600; done"
+        run: docker run --name temporarycontainer -d mcr.microsoft.com/azure-cli sh -c "while :; do sleep 2073600; done"
       - name: Login to Azure
         run: |
-          docker cp nexiusaiassistant.vsix temporaryContainer:/tmp/nexiusaiassistant.vsix
-          docker run temporaryContainer az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
-          docker run temporaryContainer az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          docker cp nexiusaiassistant.vsix temporarycontainer:/tmp/nexiusaiassistant.vsix
+          docker run temporarycontainer az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
+          docker run temporarycontainer az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       - name: Upload artifact to Azure Blob Storage
-        run: docker run temporaryContainer az storage blob upload --account-name stcratosdev --container-name nexiusaiassistant --file ./tmp/nexiusaiassistant.vsix --name nexiusaiassistant-0.0.${{github.run_number}}.vsix --overwrite "
+        run: docker run temporarycontainer az storage blob upload --account-name stcratosdev --container-name nexiusaiassistant --file ./tmp/nexiusaiassistant.vsix --name nexiusaiassistant-0.0.${{github.run_number}}.vsix --overwrite "
       - name: Stop and remove container
         run: |
-          docker stop temporaryContainer
-          docker rm temporaryContainer
+          docker stop temporarycontainer
+          docker rm temporarycontainer
   slack:
     needs: [ build ]
     runs-on: ubuntu-latest
