@@ -1,10 +1,10 @@
 const vscode = require('vscode');
 const axios = require('axios');
 const getConfig = async (errorText, configurationKey) => {
-    const configuration = vscode.workspace.getConfiguration('nexiusaiassistantSettings');
+    const configuration = vscode.workspace.getConfiguration('nexiusAiCodeBugHunterSettings');
     const configKey = configuration.get(configurationKey, '');
     if (configKey === '') {
-        await showErrorNoSetting(errorText, `nexiusaiassistantSettings.${configurationKey}`);
+        await showErrorNoSetting(errorText, `nexiusAiCodeBugHunterSettings.${configurationKey}`);
     }
     return configKey;
 }
@@ -47,7 +47,7 @@ const startLangSmith = async (userContent) => {
 */
 const callOpenAiApi = async (userContent) => {
     const secretStorage = context.secrets;
-    let storedOpenAIApiKey = await secretStorage.get('nexiusaiassistantSettings.openAIApiKey');
+    let storedOpenAIApiKey = await secretStorage.get('nexiusAiCodeBugHunterSettings.openAIApiKey');
     if (!storedOpenAIApiKey) {
         vscode.window.showInformationMessage('Nincs elmentett API kulcs!');
         const storedOpenAIApiKey = await vscode.window.showInputBox({
@@ -58,7 +58,7 @@ const callOpenAiApi = async (userContent) => {
         if (storedOpenAIApiKey === '') {
             return
         }
-        await secretStorage.store('nexiusaiassistantSettings.openAIApiKey', storedOpenAIApiKey);
+        await secretStorage.store('nexiusAiCodeBugHunterSettings.openAIApiKey', storedOpenAIApiKey);
         return await callRemoteOpenAiApi(userContent, storedOpenAIApiKey);
     }
 }

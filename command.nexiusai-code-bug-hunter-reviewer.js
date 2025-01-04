@@ -1,8 +1,8 @@
 const vscode = require('vscode');
 const {callOpenAiApi, getConfig, showErrorModal} = require('./nexiusai-global');
 
-function registerDisposableNexiusAIAssistantCodeCheck(context) {
-    let disposableNexiusAIAssistantCodeCheck = vscode.commands.registerCommand('extension.nexiusaiassistantCodeCheck', async function () {
+function registerDisposableNexiusAICodeBugHunterReviewer(context) {
+    let disposableNexiusAICodeBugHunterReviewer = vscode.commands.registerCommand('extension.nexiusaicodebughunterreviewer', async function () {
         try {
             const editor = vscode.window.activeTextEditor;
             if (!editor) {
@@ -18,8 +18,8 @@ function registerDisposableNexiusAIAssistantCodeCheck(context) {
             vscode.window.showInformationMessage(`OpenAI's starting...`);
             const answer = await callOpenAiApi(userContent);
             const panel = vscode.window.createWebviewPanel(
-                'nexiusaiassistantCodeCheck',
-                'Nexius AI Assistant Code Check Response',
+                'NexiusAICodeBugHunterReviewer',
+                'NexiusAI Code Bug Hunter Reviewer Response',
                 vscode.ViewColumn.Two,
                 {
                     enableScripts: true
@@ -32,7 +32,7 @@ function registerDisposableNexiusAIAssistantCodeCheck(context) {
             vscode.window.showErrorMessage(errorText);
         }
     });
-    context.subscriptions.push(disposableNexiusAIAssistantCodeCheck);
+    context.subscriptions.push(disposableNexiusAICodeBugHunterReviewer);
 }
 
 function getWebviewContent(answer) {
@@ -51,4 +51,4 @@ function getWebviewContent(answer) {
     `;
 }
 
-module.exports = registerDisposableNexiusAIAssistantCodeCheck;
+module.exports = registerDisposableNexiusAICodeBugHunterReviewer;

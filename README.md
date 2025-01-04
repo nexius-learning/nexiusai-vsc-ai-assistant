@@ -1,4 +1,4 @@
-# Nexius AI Visual Studio Code AI Assistant
+# Nexius AI Visual Studio Code Code Bug Hunter - AI Assistant Code Reviewer
 
 ## Extension Settings
 

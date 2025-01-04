@@ -1,7 +1,7 @@
 {
-  "name": "nexiusaiassistant",
-  "displayName": "Nexius AI Assistant",
-  "description": "Nexius Learning AI Assistant for Devevlopers",
+  "name": "nexiusaicodebughunter",
+  "displayName": "Nexius AI Code Bug Hunter",
+  "description": "Nexius Learning AI Assistant for Developers",
   "version": "0.0.0",
   "engines": {
     "vscode": "^1.96.0"
@@ -16,16 +16,6 @@
       "type": "object",
       "title": "Nexius AI Assistant",
       "properties": {
-        "nexiusaiassistantSettings.langSmithEnabled": {
-          "type": "boolean",
-          "default": "true",
-          "description": "Check this box to enable the LangSmith log system."
-        },
-        "nexiusaiassistantSettings.langSmithApiKey": {
-          "type": "string",
-          "default": "",
-          "description": "LangSmith API key."
-        },
         "nexiusaiassistantSettings.unitTestPrompt": {
           "type": "string",
           "default": "Generate a unit test in Jest for the following TypeScript code. The test should cover the functionality of all methods and functions exported in the given code. Ensure that the test code is written in TypeScript and does not include any additional comments or explanations. Provide only the unit test code. Code to test: {{code}} Output: Provide only the Jest test code without any additional explanation.",
