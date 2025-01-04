@@ -1,15 +1,29 @@
 const vscode = require('vscode');
 const axios = require('axios');
-const showErrorNoSetting = async (message,settingKey) => {
+const getConfig = async (errorText, configurationKey) => {
+    const configuration = vscode.workspace.getConfiguration('nexiusaiassistantSettings');
+    const configKey = configuration.get(configurationKey, '');
+    if (configKey === '') {
+        await showErrorNoSetting(errorText, `nexiusaiassistantSettings.${configurationKey}`);
+    }
+    return configKey;
+}
+const showErrorModal = async (message) => {
+    await vscode.window.showInformationMessage(
+        message,
+        {modal: true}
+    );
+}
+
+const showErrorNoSetting = async (message, settingKey) => {
     const selection = await vscode.window.showInformationMessage(
         message,
-        { modal: true },
+        {modal: true},
         'Goto Settings'
     );
     if (selection === 'Goto Settings') {
         await vscode.commands.executeCommand('workbench.action.openSettings', settingKey);
     }
-    return;
 }
 /*
 const startLangSmith = async (userContent) => {
@@ -31,8 +45,8 @@ const startLangSmith = async (userContent) => {
     return answer;
 }
 */
-const callOpenAiApi = async (userContent,openAiApiKey) => {
-    const response = await axios.post('https://api.openai.com/v1/chat/completions', 
+const callOpenAiApi = async (userContent, openAiApiKey) => {
+    const response = await axios.post('https://api.openai.com/v1/chat/completions',
         {
             "model": "gpt-4o-mini",
             "messages": [
@@ -41,7 +55,7 @@ const callOpenAiApi = async (userContent,openAiApiKey) => {
                     "content": userContent
                 }
             ],
-        }, 
+        },
         {
             headers: {
                 'Content-Type': 'application/json',
@@ -52,12 +66,14 @@ const callOpenAiApi = async (userContent,openAiApiKey) => {
     const answer = response.data.choices[0].message.content;
     return answer;
 }
-const uuidv4=()=> {
+const uuidv4 = () => {
     return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c =>
-      (+c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> +c / 4).toString(16)
+        (+c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> +c / 4).toString(16)
     );
-  }
+}
 module.exports = {
+    getConfig,
     callOpenAiApi,
-    showErrorNoSetting
+    showErrorNoSetting,
+    showErrorModal
 };

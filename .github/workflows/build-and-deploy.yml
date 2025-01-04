@@ -20,11 +20,22 @@ jobs:
       - name: build
         run: |
           docker build -t baseimage:build -f Dockerfile --build-arg="VERSION_PATCH=0.0.${{github.run_number}}" .
-
+      - name: Extract files
+        run: |
+          docker run --name temporaryContainer  -d baseimage:build sh -c "while :; do sleep 2073600; done"
+          docker cp temporaryContainer:/app/nexiusaiassistant-0.0.${{github.run_number}}.vsix nexiusaiassistant-0.0.${{github.run_number}}.vsix
+          docker stop temporaryContainer
+          docker rm temporaryContainer
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v4
+        with:
+          retention-days: 1
+          name: nexiusaiassistant
+          path: nexiusaiassistant-0.0.${{github.run_number}}.vsix
   slack:
     needs: [ build ]
     runs-on: ubuntu-latest
-    if: always()
+    if: false
     steps:
       - uses: 8398a7/action-slack@v3
         with:
