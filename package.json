@@ -1,6 +1,6 @@
 {
-  "name": "nexiusaicodebughunter",
-  "displayName": "Nexius AI Code Bug Hunter",
+  "name": "nexiusaiassistant",
+  "displayName": "Nexius AI Assistant",
   "description": "Nexius Learning AI Assistant for Developers",
   "version": "0.0.0",
   "engines": {
@@ -16,7 +16,7 @@
       "type": "object",
       "title": "Nexius AI Assistant",
       "properties": {
-        "nexiusaiassistantSettings.codeCheckPrompt": {
+        "nexiusaiassistantSettings.reviewerPrompt": {
           "type": "string",
           "default": "Analyze the following TypeScript code for potential developer errors or best practice violations. Provide a detailed report that highlights the issues and offers suggestions for improvement. Format the response in HTML, where each issue is presented with an explanation and a proposed solution. Code to analyze:  {{code}} Output: Provide the analysis in the following HTML structure: <h1>Code Analysis Report</h1><div><h2>Issue 1: [Short description of the issue]</h2><p><strong>Explanation:</strong> [Detailed explanation of the problem]</p><p><strong>Proposed Solution:</strong></p><pre><code>[Suggested code fix]</code></pre></div>",
           "description": "AI user prompt for code Check. This prompt will be used to check the code. The input file will be {{code}} \n Example 'Check for this file: {{code}}."
@@ -25,8 +25,12 @@
     },
     "commands": [
       {
-        "command": "extension.nexiusaiassistantCodeCheck",
-        "title": "Nexius AI Bug Hunter: Code Review"
+        "command": "extension.nexiusaiassistantConfigureOpenAIKey",
+        "title": "Nexius AI Assistant: Configure OpenAI Key"
+      },
+      {
+        "command": "extension.nexiusaiassistantReview",
+        "title": "Nexius AI Bug Assistant: Code Review"
       }
     ]
   },
