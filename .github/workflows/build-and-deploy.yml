@@ -65,7 +65,7 @@ jobs:
   slack:
     needs: [ build ]
     runs-on: ubuntu-latest
-    if: always()
+    if: false
     steps:
       - uses: 8398a7/action-slack@v3
         with:

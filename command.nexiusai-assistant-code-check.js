@@ -9,16 +9,14 @@ function registerDisposableNexiusAIAssistantCodeCheck(context) {
                 vscode.window.showErrorMessage('No active editor found. Please open a file to send its content.');
                 return;
             }
-            const openAiApiKey = await getConfig('No OpenAI API key found. Please set your OpenAI API key in the settings.', 'openAIApiKey');
             const codeCheckPrompt = await getConfig('No code check prompt found. Please set the code check prompt in the settings.', 'codeCheckPrompt');
-            if (openAiApiKey === '' || codeCheckPrompt === '') {
+            if (codeCheckPrompt === '') {
                 return
             }
-
             const documentText = editor.document.getText();
             const userContent = codeCheckPrompt.replace('{{code}}', documentText);
             vscode.window.showInformationMessage(`OpenAI's starting...`);
-            const answer = await callOpenAiApi(userContent, openAiApiKey);
+            const answer = await callOpenAiApi(userContent);
             const panel = vscode.window.createWebviewPanel(
                 'nexiusaiassistantCodeCheck',
                 'Nexius AI Assistant Code Check Response',

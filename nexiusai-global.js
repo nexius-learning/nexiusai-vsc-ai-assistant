@@ -45,7 +45,24 @@ const startLangSmith = async (userContent) => {
     return answer;
 }
 */
-const callOpenAiApi = async (userContent, openAiApiKey) => {
+const callOpenAiApi = async (userContent) => {
+    const secretStorage = context.secrets;
+    let storedOpenAIApiKey = await secretStorage.get('nexiusaiassistantSettings.openAIApiKey');
+    if (!storedOpenAIApiKey) {
+        vscode.window.showInformationMessage('Nincs elmentett API kulcs!');
+        const storedOpenAIApiKey = await vscode.window.showInputBox({
+            prompt: 'Please provide your OpenAI API key (the key will be stored securely)',
+            password: true,
+            ignoreFocusOut: true,
+        });
+        if (storedOpenAIApiKey === '') {
+            return
+        }
+        await secretStorage.store('nexiusaiassistantSettings.openAIApiKey', storedOpenAIApiKey);
+        return await callRemoteOpenAiApi(userContent, storedOpenAIApiKey);
+    }
+}
+const callRemoteOpenAiApi = async (userContent, openAiApiKey) => {
     const response = await axios.post('https://api.openai.com/v1/chat/completions',
         {
             "model": "gpt-4o-mini",

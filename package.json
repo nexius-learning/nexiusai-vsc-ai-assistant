@@ -16,11 +16,6 @@
       "type": "object",
       "title": "Nexius AI Assistant",
       "properties": {
-        "nexiusaiassistantSettings.openAIApiKey": {
-          "type": "string",
-          "default": "",
-          "description": "The API key to use for the OpenAI API."
-        },
         "nexiusaiassistantSettings.langSmithEnabled": {
           "type": "boolean",
           "default": "true",
