@@ -1,7 +1,7 @@
 {
-  "name": "nexiusaiassistant",
-  "displayName": "Nexius AI Assistant",
-  "description": "Nexius Learning AI Assistant for Devevlopers",
+  "name": "nexiusaicodebughunter",
+  "displayName": "Nexius AI Code Bug Hunter",
+  "description": "Nexius Learning AI Assistant for Developers",
   "version": "0.0.0",
   "engines": {
     "vscode": "^1.96.0"
@@ -16,21 +16,6 @@
       "type": "object",
       "title": "Nexius AI Assistant",
       "properties": {
-        "nexiusaiassistantSettings.langSmithEnabled": {
-          "type": "boolean",
-          "default": "true",
-          "description": "Check this box to enable the LangSmith log system."
-        },
-        "nexiusaiassistantSettings.langSmithApiKey": {
-          "type": "string",
-          "default": "",
-          "description": "LangSmith API key."
-        },
-        "nexiusaiassistantSettings.unitTestPrompt": {
-          "type": "string",
-          "default": "Generate a unit test in Jest for the following TypeScript code. The test should cover the functionality of all methods and functions exported in the given code. Ensure that the test code is written in TypeScript and does not include any additional comments or explanations. Provide only the unit test code. Code to test: {{code}} Output: Provide only the Jest test code without any additional explanation.",
-          "description": "AI user prompt for unit tests. This prompt will be used to generate unit tests. The input file will be {{code}} \n Example 'Create unit test for this file: {{code}}. Only the code."
-        },
         "nexiusaiassistantSettings.codeCheckPrompt": {
           "type": "string",
           "default": "Analyze the following TypeScript code for potential developer errors or best practice violations. Provide a detailed report that highlights the issues and offers suggestions for improvement. Format the response in HTML, where each issue is presented with an explanation and a proposed solution. Code to analyze:  {{code}} Output: Provide the analysis in the following HTML structure: <h1>Code Analysis Report</h1><div><h2>Issue 1: [Short description of the issue]</h2><p><strong>Explanation:</strong> [Detailed explanation of the problem]</p><p><strong>Proposed Solution:</strong></p><pre><code>[Suggested code fix]</code></pre></div>",
@@ -40,16 +25,8 @@
     },
     "commands": [
       {
-        "command": "extension.nexiusaiassistantGenerateUnitTest",
-        "title": "Nexius AI Assistant: Generate Unit Test"
-      },
-      {
         "command": "extension.nexiusaiassistantCodeCheck",
-        "title": "Nexius AI Assistant: Check the Code"
-      },
-      {
-        "command": "extension.nexiusaiassistantTest",
-        "title": "Nexius AI Assistant: Test"
+        "title": "Nexius AI Bug Hunter: Code Review"
       }
     ]
   },
