@@ -32,6 +32,21 @@ jobs:
           retention-days: 1
           name: nexiusaiassistant
           path: nexiusaiassistant-0.0.${{github.run_number}}.vsix
+  upload:
+    name: Upload artifact to GitHub Pages
+    needs: [ build ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: nexiusaiassistant
+      - name: tmp
+        run: |
+          mv nexiusaiassistant-0.0.${{github.run_number}}.vsix nexiusaiassistant.vsix
+      - name: Upload to Azure Blob Storage
+        run: |
+          docker run mcr.microsoft.com/azure-cli -v ${PWD}/:/tmp bash -c "az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }} && az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }} az storage blob upload --account-name stcratosdev --container-name nexiusaiassistant --file ./tmp/nexiusaiassistant.vsix --name nexiusaiassistant-0.0.${{github.run_number}}.vsix --overwrite "
   slack:
     needs: [ build ]
     runs-on: ubuntu-latest

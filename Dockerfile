@@ -1,4 +1,4 @@
-FROM node:lts
+FROM node:lts-alpine
 ARG VERSION_PATCH=0.0.1
 WORKDIR /app
 COPY . .
