@@ -1,6 +1,6 @@
 # Change Log
 
-All notable changes to the "alma" extension will be documented in this file.
+All notable changes to the "Nexius AI Assistant" extension will be documented in this file.
 
 ## 1.0.0
 

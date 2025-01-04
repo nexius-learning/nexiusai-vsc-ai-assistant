@@ -1,25 +1,28 @@
 const vscode = require('vscode');
 const {callOpenAiApi, getConfig, showErrorModal} = require('./nexiusai-global');
 
-function registerDisposableNexiusAIAssistantCodeCheck(context) {
-    let disposableNexiusAIAssistantCodeCheck = vscode.commands.registerCommand('extension.nexiusaiassistantCodeCheck', async function () {
+function registerDisposableNexiusAIReview(context) {
+    let disposableNexiusAIAssistantReview = vscode.commands.registerCommand('extension.nexiusaiassistantReview', async function () {
         try {
             const editor = vscode.window.activeTextEditor;
             if (!editor) {
                 vscode.window.showErrorMessage('No active editor found. Please open a file to send its content.');
                 return;
             }
-            const codeCheckPrompt = await getConfig('No code check prompt found. Please set the code check prompt in the settings.', 'codeCheckPrompt');
-            if (codeCheckPrompt === '') {
+            const reviewerPrompt = await getConfig('No code check prompt found. Please set the code check prompt in the settings.', 'reviewerPrompt');
+            if (reviewerPrompt === '') {
                 return
             }
+            console.log(reviewerPrompt);
             const documentText = editor.document.getText();
-            const userContent = codeCheckPrompt.replace('{{code}}', documentText);
-            vscode.window.showInformationMessage(`OpenAI's starting...`);
-            const answer = await callOpenAiApi(userContent);
+            const userContent = reviewerPrompt.replace('{{code}}', documentText);
+            const answer = await callOpenAiApi(context, userContent);
+            if (!answer) {
+                return
+            }
             const panel = vscode.window.createWebviewPanel(
-                'nexiusaiassistantCodeCheck',
-                'Nexius AI Assistant Code Check Response',
+                'nexiusaiassistantReview',
+                'Nexius AI Assistant Review Response',
                 vscode.ViewColumn.Two,
                 {
                     enableScripts: true
@@ -32,7 +35,7 @@ function registerDisposableNexiusAIAssistantCodeCheck(context) {
             vscode.window.showErrorMessage(errorText);
         }
     });
-    context.subscriptions.push(disposableNexiusAIAssistantCodeCheck);
+    context.subscriptions.push(disposableNexiusAIAssistantReview);
 }
 
 function getWebviewContent(answer) {
@@ -51,4 +54,4 @@ function getWebviewContent(answer) {
     `;
 }
 
-module.exports = registerDisposableNexiusAIAssistantCodeCheck;
+module.exports = registerDisposableNexiusAIReview;
