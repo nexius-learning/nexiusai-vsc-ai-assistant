@@ -44,6 +44,8 @@ jobs:
       - name: tmp
         run: |
           mv nexiusaiassistant-0.0.${{github.run_number}}.vsix nexiusaiassistant.vsix
+      - name: list files
+        run: ls -1
       - name: Start docker container
         run: docker run --name temporarycontainer -d mcr.microsoft.com/azure-cli sh -c "while :; do sleep 2073600; done"
       - name: Copy artifact to container
