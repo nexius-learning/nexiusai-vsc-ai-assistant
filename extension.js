@@ -1,8 +1,10 @@
-const registerDisposableNexiusAIAssistantCodeCheck = require('./command.nexiusai-assistant-code-check');
+const registerDisposableNexiusAIAssistantCodeCheck = require('./src/command.nexiusai-assistant-review');
+const registerDisposableNexiusAIConfigureOpenAIKey = require("./src/command.nexiusai-assistant-openai-key");
 
 
 function activate(context) {
     registerDisposableNexiusAIAssistantCodeCheck(context);
+    registerDisposableNexiusAIConfigureOpenAIKey(context);
 }
 
 function deactivate() {
