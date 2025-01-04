@@ -46,9 +46,12 @@ jobs:
           mv nexiusaiassistant-0.0.${{github.run_number}}.vsix nexiusaiassistant.vsix
       - name: Start docker container
         run: docker run --name temporarycontainer -d mcr.microsoft.com/azure-cli sh -c "while :; do sleep 2073600; done"
+      - name: Copy artifact to container
+        run: |
+          docker ps
+          docker cp nexiusaiassistant.vsix temporarycontainer:/tmp/nexiusaiassistant.vsix
       - name: Login to Azure
         run: |
-          docker cp nexiusaiassistant.vsix temporarycontainer:/tmp/nexiusaiassistant.vsix
           docker run temporarycontainer az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
           docker run temporarycontainer az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       - name: Upload artifact to Azure Blob Storage
