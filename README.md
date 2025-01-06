@@ -4,6 +4,9 @@
 
 Include if your extension adds any VS Code settings through the `User.Extension.Nexius AI Assitant` extension point.
 
+## Download
+https://stcratosdev.blob.core.windows.net/nexiusaiassistant/nexiusaiassistant.vsix
+
 ## Prerequisites
 
 - You need to have an openAI API key to use the Nexius AI Assistant.
