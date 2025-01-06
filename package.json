@@ -30,7 +30,7 @@
       },
       {
         "command": "extension.nexiusaiassistantReview",
-        "title": "Nexius AI Bug Assistant: Code Review"
+        "title": "Nexius AI Assistant: Code Review"
       }
     ]
   },
