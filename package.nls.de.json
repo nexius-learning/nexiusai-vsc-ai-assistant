@@ -1,0 +1,3 @@
+{
+  "nexiusaiassistantSettings.reviewerPromptDescription": "AI-Benutzeraufforderung zur Codeprüfung. Diese Eingabeaufforderung wird zur Überprüfung des Codes verwendet. Die Eingabedatei ist {{code}}\nBeispiel: „Überprüfen Sie diese Datei: {{code}}.“"
+}

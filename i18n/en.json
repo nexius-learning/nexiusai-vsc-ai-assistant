@@ -1,0 +1,12 @@
+{
+  "inputPleaseProvideOpenAIKey": "Please provide your OpenAI API key (the key will be stored securely)",
+  "errorNoActiveEditor": "No active editor found. Please open a file to send its content.",
+  "errorNoCodeCheckPrompt": "No code check prompt found. Please set the code check prompt in the settings.",
+  "infoNexiusAIAssistantReviewResponse": "Nexius AI Assistant Review Response",
+  "errorFailedToQueryOpenAPI": "Failed to query OpenAI API: {0}",
+  "errorOpenAIKeyNotFound": "OpenAI API key not found. Please provide your OpenAI API key.",
+  "errorPleaseProvideYourOpenAI": "Please provide your OpenAI API key (the key will be stored securely)",
+  "infoOpenAIInProgress": "OpenAI in progress...",
+  "infoOpenAiAnswerReceived": "OpenAI answer received.",
+  "buttonGotoSettings": "Goto Settings"
+}

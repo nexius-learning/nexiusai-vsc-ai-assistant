@@ -1,0 +1,12 @@
+{
+  "inputPleaseProvideOpenAIKey": "Veuillez fournir votre clé API OpenAI (la clé sera stockée en toute sécurité)",
+  "errorNoActiveEditor": "No active editor found. Please open a file to send its content.",
+  "errorNoCodeCheckPrompt": "Aucune invite de vérification de code trouvée. Veuillez définir l'invite de vérification de code dans les paramètres.",
+  "infoNexiusAIAssistantReviewResponse": "Nexius AI Assistant Review Réponse",
+  "errorFailedToQueryOpenAPI": "Échec de la requête de l'API OpenAI: {0}",
+  "errorOpenAIKeyNotFound": "Clé API OpenAI introuvable. Veuillez fournir votre clé API OpenAI.",
+  "errorPleaseProvideYourOpenAI": "Veuillez fournir votre clé API OpenAI (la clé sera stockée en toute sécurité)",
+  "infoOpenAIInProgress": "Réponse OpenAI reçue.",
+  "infoOpenAiAnswerReceived": "OpenAI answer received.",
+  "buttonGotoSettings": "Accéder aux paramètres"
+}

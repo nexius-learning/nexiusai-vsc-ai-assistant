@@ -1,0 +1,12 @@
+{
+  "inputPleaseProvideOpenAIKey": "Kérjük, adja meg OpenAI API-kulcsát (a kulcsot biztonságosan tároljuk)",
+  "errorNoActiveEditor": "No active editor found. Please open a file to send its content.",
+  "errorNoCodeCheckPrompt": "Nem található kódellenőrző kérdés. Kérjük, állítsa be a kódellenőrző parancsot a beállításokban.",
+  "infoNexiusAIAssistantReviewResponse": "Nexius AI Assistant Review Válasz",
+  "errorFailedToQueryOpenAPI": "Nem sikerült lekérdezni az OpenAI API-t: {0}",
+  "errorOpenAIKeyNotFound": "OpenAI API kulcs nem található. Kérjük, adja meg OpenAI API-kulcsát.",
+  "errorPleaseProvideYourOpenAI": "Kérjük, adja meg OpenAI API-kulcsát (a kulcsot biztonságosan tároljuk)",
+  "infoOpenAIInProgress": "OpenAI folyamatban...",
+  "infoOpenAiAnswerReceived": "OpenAI válasz érkezett.",
+  "buttonGotoSettings": "Lépjen a Beállítások menüpontra"
+}
