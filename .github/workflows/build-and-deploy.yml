@@ -54,9 +54,12 @@ jobs:
         run: |
           docker exec temporarycontainer az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
           docker exec temporarycontainer az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-      - name: Upload artifact to Azure Blob Storage
+      - name: Upload artifact to Azure Blob Storage Main
+        if: github.ref == 'refs/heads/main'
         run: |
           docker exec temporarycontainer az storage blob upload --account-name stcratosdev --container-name nexiusaiassistant --file ./tmp/nexiusaiassistant.vsix --name nexiusaiassistant.vsix --overwrite
+      - name: Upload artifact Feature to Azure Blob Storage
+        run: |
           docker exec temporarycontainer az storage blob upload --account-name stcratosdev --container-name nexiusaiassistant --file ./tmp/nexiusaiassistant.vsix --name nexiusaiassistant-0.0.${{github.run_number}}.vsix --overwrite
       - name: Stop and remove container
         run: |

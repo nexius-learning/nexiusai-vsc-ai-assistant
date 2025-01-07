@@ -1,10 +1,10 @@
 const vscode = require('vscode');
 
-function registerDisposableNexiusAIConfigureOpenAIKey(context) {
+function registerDisposableNexiusAIConfigureOpenAIKey(context, l10nConfig) {
     let disposableNexiusAIConfigureOpenAIKey = vscode.commands.registerCommand('extension.nexiusaiassistantConfigureOpenAIKey', async function () {
         const secretStorage = context.secrets;
         const storedOpenAIApiKey = await vscode.window.showInputBox({
-            prompt: 'Please provide your OpenAI API key (the key will be stored securely)',
+            prompt: l10nConfig.t('inputPleaseProvideOpenAIKey'),
             password: true,
             ignoreFocusOut: true,
         });

@@ -1,0 +1,3 @@
+{
+  "nexiusaiassistantSettings.reviewerPromptDescription": "L'utilisateur de l'IA demande à l'utilisateur de vérifier le code. Cette invite sera utilisée pour vérifier le code. Le fichier d'entrée sera {{code}}\nExemple « Vérifier ce fichier : {{code}}."
+}
