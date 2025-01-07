@@ -1,3 +1,10 @@
 {
-  "nexiusaiassistantSettings.reviewerPromptDescription": "AI user prompt for code Check. This prompt will be used to check the code. The input file will be {{code}} \n Example 'Check for this file: {{code}}."
+  "nexiusaiassistantSettings.reviewerPromptDescription": "AI user prompt for code Check. This prompt will be used to check the code. The input file will be {{code}} \n Example 'Check for this file: {{code}}.",
+  "nexiusaiassistantSettings.modelDescription": "Select the model to use for the AI Assistant",
+  "nexiusaiassistantSettings.modelgpt35TurboDescription": "It has excellent general language capabilities and is ideal for high-volume tasks such as chatbots or text generation.",
+  "nexiusaiassistantSettings.modelgpt4TurboDescription": "An accelerated version of the GPT-4 model that provides higher performance with lower latency.",
+  "nexiusaiassistantSettings.modelgpt4oDescription": "Specifically designed for efficient, high-quality text processing and generation, often for specialized tasks.",
+  "nexiusaiassistantSettings.modelgpt4oMiniDescription": "Suitable for less complex tasks or resource-saving applications.",
+  "nexiusaiassistantSettings.modelgptO1Description": "It can be used for both text processing and solving simpler language tasks.",
+  "nexiusaiassistantSettings.modelgptO1MiniDescription": "A good choice for simpler applications or resource-saving systems."
 }

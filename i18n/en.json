@@ -8,5 +8,6 @@
   "errorPleaseProvideYourOpenAI": "Please provide your OpenAI API key (the key will be stored securely)",
   "infoOpenAIInProgress": "OpenAI in progress...",
   "infoOpenAiAnswerReceived": "OpenAI answer received.",
-  "buttonGotoSettings": "Goto Settings"
+  "buttonGotoSettings": "Goto Settings",
+  "errorNoModelPrompt": "No model found. Please set the model in the settings."
 }

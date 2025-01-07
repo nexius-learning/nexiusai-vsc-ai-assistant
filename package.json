@@ -2,7 +2,7 @@
   "name": "nexiusaiassistant",
   "displayName": "Nexius AI Assistant",
   "description": "Nexius Learning AI Assistant for Developers",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -20,6 +20,35 @@
           "type": "string",
           "default": "Analyze the following TypeScript code for potential developer errors or best practice violations. Provide a detailed report that highlights the issues and offers suggestions for improvement. Format the response in HTML, where each issue is presented with an explanation and a proposed solution. Code to analyze:  {{code}} Output: Provide the analysis in the following HTML structure: <h1>Code Analysis Report</h1><div><h2>Issue 1: [Short description of the issue]</h2><p><strong>Explanation:</strong> [Detailed explanation of the problem]</p><p><strong>Proposed Solution:</strong></p><pre><code>[Suggested code fix]</code></pre></div>",
           "description": "%nexiusaiassistantSettings.reviewerPromptDescription%"
+        },
+        "nexiusaiassistantSettings.model": {
+          "type": "string",
+          "enum": [
+            "gpt-3.5-turbo",
+            "gpt-4-turbo",
+            "gpt-4o",
+            "gpt-4o-mini",
+            "o1",
+            "o1-mini"
+          ],
+          "markdownEnumDescriptions": [
+            "%nexiusaiassistantSettings.modelgpt35TurboDescription%",
+            "%nexiusaiassistantSettings.modelgpt4TurboDescription%",
+            "%nexiusaiassistantSettings.modelgpt4oDescription%",
+            "%nexiusaiassistantSettings.modelgpt4oMiniDescription%",
+            "%nexiusaiassistantSettings.modelgptO1Description%",
+            "%nexiusaiassistantSettings.modelgptO1MiniDescription%"
+          ],
+          "enumItemLabels": [
+            "GPT 3.5 Turbo",
+            "GPT 4 Turbo",
+            "GPT 4o",
+            "GPT 4o Mini",
+            "O1",
+            "O1 Mini"
+          ],
+          "default": "gpt-4o",
+          "description": "%nexiusaiassistantSettings.modelDescription%"
         }
       }
     },

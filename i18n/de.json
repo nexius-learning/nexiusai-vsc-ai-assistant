@@ -8,5 +8,6 @@
   "errorPleaseProvideYourOpenAI": "Bitte geben Sie Ihren OpenAI API-Schlüssel ein (der Schlüssel wird sicher gespeichert)",
   "infoOpenAIInProgress": "OpenAI in Arbeit ...",
   "infoOpenAiAnswerReceived": "OpenAI-Antwort erhalten.",
-  "buttonGotoSettings": "Gehe zu Einstellungen"
+  "buttonGotoSettings": "Gehe zu Einstellungen",
+  "errorNoModelPrompt": "Kein Modell gefunden. Bitte stellen Sie das Modell in den Einstellungen ein."
 }

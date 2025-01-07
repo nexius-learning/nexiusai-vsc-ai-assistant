@@ -8,5 +8,6 @@
   "errorPleaseProvideYourOpenAI": "Kérjük, adja meg OpenAI API-kulcsát (a kulcsot biztonságosan tároljuk)",
   "infoOpenAIInProgress": "OpenAI folyamatban...",
   "infoOpenAiAnswerReceived": "OpenAI válasz érkezett.",
-  "buttonGotoSettings": "Lépjen a Beállítások menüpontra"
+  "buttonGotoSettings": "Lépjen a Beállítások menüpontra",
+  "errorNoModelPrompt": "Nem található modell. Kérjük, állítsa be a modellt a beállításokban."
 }

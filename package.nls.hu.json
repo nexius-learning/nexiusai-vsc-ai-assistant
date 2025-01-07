@@ -1,3 +1,10 @@
 {
-  "nexiusaiassistantSettings.reviewerPromptDescription": "AI felhasználói prompt kódellenőrzéshez. Ez a prompt lesz használva a kód ellenőrzésére. A bemeneti fájl: {{code}} \n Példa: 'Ellenőrizd ezt a fájlt: {{code}}.'"
+  "nexiusaiassistantSettings.reviewerPromptDescription": "AI felhasználói prompt kódellenőrzéshez. Ez a prompt lesz használva a kód ellenőrzésére. A bemeneti fájl: {{code}} \n Példa: 'Ellenőrizd ezt a fájlt: {{code}}.'",
+  "nexiusaiassistantSettings.modelDescription": "Válassza ki az AI-asszisztenshez használni kívánt modellt",
+  "nexiusaiassistantSettings.modelgpt35TurboDescription": "Kiváló általános nyelvi képességekkel rendelkezik, és ideális nagy volumenű feladatokhoz, például chatbotokhoz vagy szöveggeneráláshoz.",
+  "nexiusaiassistantSettings.modelgpt4TurboDescription": "A GPT-4 modell gyorsított változata, amely nagyobb teljesítményt nyújt kisebb késleltetéssel.",
+  "nexiusaiassistantSettings.modelgpt4oDescription": "Kifejezetten hatékony, magas színvonalú szövegfeldolgozásra és generálásra tervezett, gyakran specializált feladatokra.",
+  "nexiusaiassistantSettings.modelgpt4oMiniDescription": "Alkalmas kevésbé komplex feladatokhoz vagy erőforrás-takarékos alkalmazásokhoz.",
+  "nexiusaiassistantSettings.modelgptO1Description": "Alkalmazható mind szövegfeldolgozásra, mind egyszerűbb nyelvi feladatok megoldására.",
+  "nexiusaiassistantSettings.modelgptO1MiniDescription": "Jó választás egyszerűbb alkalmazásokhoz vagy erőforrástakarékos rendszerekhez."
 }

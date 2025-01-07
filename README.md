@@ -5,6 +5,7 @@
 Include if your extension adds any VS Code settings through the `User.Extension.Nexius AI Assitant` extension point.
 
 ## Download
+
 https://stcratosdev.blob.core.windows.net/nexiusaiassistant/nexiusaiassistant.vsix
 
 ## Prerequisites
@@ -20,9 +21,3 @@ https://stcratosdev.blob.core.windows.net/nexiusaiassistant/nexiusaiassistant.vs
 - Nexius AI Assistant can provide code snippets to help you write better code.
 - Nexius AI Assistant can provide code examples to help you understand how to write better code.
 - Command: `Nexius AI Assistant: Review Code`
-
-## Release Notes
-
-### 0.0.1
-
-Hello Developers!

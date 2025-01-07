@@ -1,3 +1,10 @@
 {
-  "nexiusaiassistantSettings.reviewerPromptDescription": "AI-Benutzeraufforderung zur Codeprüfung. Diese Eingabeaufforderung wird zur Überprüfung des Codes verwendet. Die Eingabedatei ist {{code}}\nBeispiel: „Überprüfen Sie diese Datei: {{code}}.“"
+  "nexiusaiassistantSettings.reviewerPromptDescription": "AI-Benutzeraufforderung zur Codeprüfung. Diese Eingabeaufforderung wird zur Überprüfung des Codes verwendet. Die Eingabedatei ist {{code}}\nBeispiel: „Überprüfen Sie diese Datei: {{code}}.“",
+  "nexiusaiassistantSettings.modelDescription": "Wählen Sie das für den KI-Assistenten zu verwendende Modell aus",
+  "nexiusaiassistantSettings.modelgpt35TurboDescription": "Es verfügt über ausgezeichnete allgemeine Sprachfähigkeiten und ist ideal für umfangreiche Aufgaben wie Chatbots oder Texterstellung.",
+  "nexiusaiassistantSettings.modelgpt4TurboDescription": "Eine beschleunigte Version des GPT-4-Modells, die eine höhere Leistung bei geringerer Latenz bietet.",
+  "nexiusaiassistantSettings.modelgpt4oDescription": "Speziell für die effiziente, qualitativ hochwertige Textverarbeitung und -generierung entwickelt, häufig für spezielle Aufgaben.",
+  "nexiusaiassistantSettings.modelgpt4oMiniDescription": "Geeignet für weniger komplexe Aufgaben oder ressourcenschonende Anwendungen.",
+  "nexiusaiassistantSettings.modelgptO1Description": "Es kann sowohl zur Textverarbeitung als auch zur Lösung einfacherer Sprachaufgaben eingesetzt werden.",
+  "nexiusaiassistantSettings.modelgptO1MiniDescription": "Eine gute Wahl für einfachere Anwendungen oder ressourcenschonende Systeme."
 }

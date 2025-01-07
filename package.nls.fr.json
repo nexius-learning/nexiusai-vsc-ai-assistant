@@ -1,3 +1,10 @@
 {
-  "nexiusaiassistantSettings.reviewerPromptDescription": "L'utilisateur de l'IA demande à l'utilisateur de vérifier le code. Cette invite sera utilisée pour vérifier le code. Le fichier d'entrée sera {{code}}\nExemple « Vérifier ce fichier : {{code}}."
+  "nexiusaiassistantSettings.reviewerPromptDescription": "L'utilisateur de l'IA demande à l'utilisateur de vérifier le code. Cette invite sera utilisée pour vérifier le code. Le fichier d'entrée sera {{code}}\nExemple « Vérifier ce fichier : {{code}}.",
+  "nexiusaiassistantSettings.modelDescription": "Sélectionnez le modèle à utiliser pour l'assistant IA",
+  "nexiusaiassistantSettings.modelgpt35TurboDescription": "Il possède d’excellentes capacités linguistiques générales et est idéal pour les tâches à volume élevé telles que les chatbots ou la génération de texte.",
+  "nexiusaiassistantSettings.modelgpt4TurboDescription": "Une version accélérée du modèle GPT-4 qui offre des performances supérieures avec une latence plus faible.",
+  "nexiusaiassistantSettings.modelgpt4oDescription": "Conçu spécifiquement pour un traitement et une génération de texte efficaces et de haute qualité, souvent pour des tâches spécialisées.",
+  "nexiusaiassistantSettings.modelgpt4oMiniDescription": "Convient aux tâches moins complexes ou aux applications économes en ressources.",
+  "nexiusaiassistantSettings.modelgptO1Description": "Il peut être utilisé à la fois pour le traitement de texte et pour résoudre des tâches linguistiques plus simples.",
+  "nexiusaiassistantSettings.modelgptO1MiniDescription": "Un bon choix pour les applications plus simples ou les systèmes économes en ressources."
 }

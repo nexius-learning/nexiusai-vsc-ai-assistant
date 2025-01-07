@@ -23,7 +23,7 @@ jobs:
       - name: Extract files
         run: |
           docker run --name temporaryContainer  -d baseimage:build sh -c "while :; do sleep 2073600; done"
-          docker cp temporaryContainer:/app/nexiusaiassistant-0.0.${{github.run_number}}.vsix nexiusaiassistant-0.0.${{github.run_number}}.vsix
+          docker cp temporaryContainer:/app/nexiusaiassistant-0.0.${{github.run_number}}.vsix nexiusaiassistant-0.2.${{github.run_number}}.vsix
           docker stop temporaryContainer
           docker rm temporaryContainer
       - name: Upload artifact for deployment job

@@ -26,6 +26,7 @@ const showErrorNoSetting = async (message, settingKey, l10nConfig) => {
     }
 }
 const callOpenAiApi = async (context, userContent, l10nConfig) => {
+
     const secretStorage = context.secrets;
     let storedOpenAIApiKey = await secretStorage.get('nexiusaiassistantSettings.openAIApiKey');
     if (!storedOpenAIApiKey) {
@@ -47,10 +48,11 @@ const callOpenAiApi = async (context, userContent, l10nConfig) => {
 
 }
 const callRemoteOpenAiApi = async (userContent, openAiApiKey, l10nConfig) => {
+    const model = getConfig(l10nConfig.t('errorNoModelPrompt'), 'model', l10nConfig);
     vscode.window.showInformationMessage(l10nConfig.t('infoOpenAIInProgress'));
     const response = await axios.post('https://api.openai.com/v1/chat/completions',
         {
-            "model": "gpt-4o-mini",
+            "model": model,
             "messages": [
                 {
                     "role": "user",
